@@ -2,13 +2,17 @@ function jump(nums: number[]): number {
     if (nums.length < 2) {
         return 0;
     }
-    const jumpArray = new Array(nums.length).fill(0);
-    for (let i = 0; i < nums.length; i++) {
-        for (let j = 0; j < nums[i] && i + j + 1 < nums.length; j++) {
-            if (jumpArray[i + j + 1] > jumpArray[i] || jumpArray[i + j + 1] === 0) {
-                jumpArray[i + j + 1] = jumpArray[i] + 1;
-            }
+    let jumpCount = 0;
+    let maxRange = nums[0];
+    let i = 0;
+    while (i < nums.length - 1) {
+        jumpCount++;
+        if (maxRange >= nums.length - 1) {
+            break;
         }
+        const range = nums.slice(i + 1, maxRange + 1);
+        i += 1 + range.reduce((acc, cur, index) => cur + index >= range[acc] + acc ? index : acc, 0);
+        maxRange = nums[i] + i;
     }
-    return jumpArray[jumpArray.length - 1];
+    return jumpCount;
 };
