@@ -1,6 +1,6 @@
 function candy(ratings: number[]): number {
     const len = ratings.length;
-    const res = new Array(len).fill(1);
+    const res = new Array<number>(len).fill(1);
     for (let i = 1; i < len; i++) {
         if (ratings[i] > ratings[i - 1]) {
             if (res[i] <= res[i - 1]) {
