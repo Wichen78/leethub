@@ -9,7 +9,7 @@ function trap(height: number[]): number {
                     j++;
                 }
                 if (i + j >= height.length) {
-                    continue;
+                    break;
                 } else if (j === 1) {
                     h = height[i + j];
                 } else {
