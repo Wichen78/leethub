@@ -27,14 +27,14 @@ function fullJustify(words: string[], maxWidth: number): string[] {
 };
 
 function lineJustify(words: string[], maxWidth: number): string {
-    let res = words[0];
     const length = words.length;
+    let res = words[0];
     let spaces = maxWidth - words.join('').length;
     for (let i = 1; i < length; i++) {
         const space = Math.ceil(spaces / (length - i));
-        res += " ".repeat(space) + words[i];
+        res += ' '.repeat(space) + words[i];
         spaces -= space;
     }
-    
-    return res + " ".repeat(spaces);
+
+    return res + ' '.repeat(spaces);
 };
