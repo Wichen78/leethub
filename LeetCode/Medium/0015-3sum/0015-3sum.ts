@@ -3,6 +3,9 @@ function threeSum(nums: number[]): number[][] {
     const res = {};
     const length = nums.length;
     for (let i = 0; i < length - 2; i++) {
+        if (nums[i] > 0) {
+            break;
+        }
         for (let j = i + 1; j < length - 1; j++) {
             const k = findIndex(nums, j + 1, - nums[i] - nums[j]);
             if (k > 0) {
